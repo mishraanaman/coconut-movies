@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"; // for routing our page import createBrowserRouter and RouterProvider for providing router & Outlet for children component for nested routing
 import About from "./components/About";
 import Contact from "./components/Contact";
+import ProductMenu from "./components/ProductMenu"
 
 
 
@@ -41,10 +42,10 @@ const appRouter = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
-      // {
-      //   path: "/restaurant/:resId",
-      //   element: <RestaurantMenu />,
-      // },
+      {
+        path: "/products/:prodId",
+        element: <ProductMenu />,
+      },
     ],
   },
   // {

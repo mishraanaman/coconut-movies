@@ -18,7 +18,7 @@ const Contact = () => {
           <label htmlFor="message" className="block font-medium mb-2">Message:</label>
           <textarea id="message" name="message" rows="5" className="border-gray-300 border rounded-lg p-2 w-full"></textarea>
         </div>
-        <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white rounded-lg px-4 py-2">Submit</button>
+        <button type="submit" className="bg-stone-300 hover:bg-stone-400 p-2 text-white rounded-lg px-4 py-2">Submit</button>
       </form>
     </div>
   );
