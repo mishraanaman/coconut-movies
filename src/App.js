@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -7,16 +7,30 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"; 
 import About from "./components/About";
 import Contact from "./components/Contact";
 import ProductMenu from "./components/ProductMenu"
+import {Provider} from "react-redux"
+import UserContext from "./utils/UserContext";
+import Store  from "./utils/store";
+import Men from "./components/Men"; 
+import Women from "./components/Women";
 
 
 
 
 const AppLayout =()=>{
+
+const [user, setUser] = useState({name: "Naman Mishra", email: "reachoutnaman@gmail.com"});
+
+   
   return (
     <>
+    <Provider store ={Store}>
+    <UserContext.Provider value ={{user: user, setUser: setUser}} >
     <Header/>
     <Outlet/>
     <Footer/>
+    </UserContext.Provider>
+    </Provider>
+    
   </>
   )
 }
@@ -43,9 +57,17 @@ const appRouter = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "/products/:prodId",
-        element: <ProductMenu />,
+        path: "/men",
+        element: <Men />,
       },
+      {
+        path: "/women",
+        element: <Women />,
+      },
+      // {
+      //   path: "/products/:prodId",
+      //   element: <ProductMenu />,
+      // },
     ],
   },
   // {
