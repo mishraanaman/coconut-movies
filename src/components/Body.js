@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { products } from "../../constants";
+import { products, FAB_INDIA_URL } from "../../constants";
 import { filterData } from "../utils/helper";
 import { useEffect } from "react";
 
@@ -78,7 +78,7 @@ const Body = () => {
 
  
 return(
-
+<>
 <div className="search-container">
         <input
           type="text"
@@ -99,23 +99,22 @@ return(
         </button>      
 
       {errorMessage && <div className="error-container">{errorMessage}</div>}
+      </div>
 
 <ul className="flex flex-wrap">
   {filteredProducts.map(product => (
-    <li key={product.code} className="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-110">
-      <img src={"https://apisap.fabindia.com"+product.images[0].url} alt={product.name} className="w-full h-56 object-cover" />
-      <div className="py-30 px-6">
+    <li key={product.code} className="bg-white shadow-lg rounded-lg hover:scale-11 h-120 w-80">
+      <img src={FAB_INDIA_URL+product.images[0].url} alt={product.name} className="h-100 w-80" />
         <h3 className="text-lg mb-2">{product.name}</h3>
         <ul className="flex justify-between">
           <li> <h3 className="text-lg mb-2">{product.price.formattedValue}</h3></li>
          <li><button className="bg-stone-100 text-neutral-950 font-bold py-2 px-4 rounded mt-4 opacity-70">+</button></li>
         </ul>
        
-      </div>
     </li>
   ))}
 </ul>
-</div>
+</>
 )
 }
 

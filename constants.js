@@ -32,4 +32,4 @@ export const products = [
       }
   ];
 
-
+export const FAB_INDIA_URL ="https://apisap.fabindia.com"
