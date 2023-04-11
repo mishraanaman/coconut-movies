@@ -7,7 +7,7 @@ const Footer = () => {
 
   return (
     <>
-     <div className="h-20 bg-stone-300 text-neutral-950">
+     <div className="h-16 bg-stone-300 text-neutral-950 fixed bottom-0 left-0 w-full mt-8">
      <div className="nav-items">
         <ul className="flex py-8">
             <li className="px-2 font-bold">Home</li>

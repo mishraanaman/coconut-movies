@@ -5,6 +5,9 @@ import { useEffect } from "react";
 import { addItem } from "../utils/cartSlice";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import Banner from "./Banner";
+import ProductCard from "./ProductCard";
+import { postData } from "../utils/helper";
 
 const Men= () =>{
     [searchText, setSearchText] = useState("");
@@ -20,21 +23,7 @@ const Men= () =>{
       useDispatch(addItem("Grapes"));
     })
   
-  
-    const postData = async (url, data) => {
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
-      const responseData = await response.json();
-      return responseData;
-    };
-  
-  
-  
+
   
     async function getProducts() {
       // handle the error using try... catch
@@ -88,11 +77,9 @@ const Men= () =>{
    
   return(
   <>
-  <div className="m-5 flex justify-between">
-  <Link to="/women"><h1 className="px-2">Women</h1></Link>
-  <Link to="/men"><h1 className="px-2">Men</h1></Link>
+  <Banner/>
   
-  <div className="search-container">
+  <div className="search-container flex justify-end">
           <input
             type="text"
             className="search-input p-2 m-2"
@@ -112,22 +99,21 @@ const Men= () =>{
           </button>  
   
         {errorMessage && <div className="error-container">{errorMessage}</div>}
-        </div>
         </div>    
-    
   
   <ul className="flex flex-wrap">
-    {filteredProducts.map(product => (
-      <li key={product.code} className="bg-white shadow-lg rounded-lg hover:scale-11 h-120 w-80">
-        <img src={FAB_INDIA_URL+product.images[0].url} alt={product.name} className="h-100 w-80" />
-          <h3 className="text-lg mb-2">{product.name}</h3>
-          <ul className="flex justify-between">
-            <li> <h3 className="text-lg mb-2">{product.price.formattedValue}</h3></li>
-           {/* <li><button className="bg-stone-100 text-neutral-950 font-bold py-2 px-4 rounded mt-4 opacity-70">+</button></li> */}
-          </ul>
-         
-      </li>
-    ))}
+  {filteredProducts.map(product => {
+  const { code, name, images, price } = product;
+
+  return (
+    <ProductCard
+      id={code}
+      name ={name}
+      images={images}
+      price={price}
+    />
+  );
+})}
   </ul>
   </>
   )
