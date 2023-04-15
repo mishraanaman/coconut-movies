@@ -34,3 +34,6 @@ export const products = [
 
 export const FAB_INDIA_API = "https://apisap.fabindia.com/occ/v2/fabindiab2c/plpContent/searchProducts?fields=products(name,code,price(FULL),images(FULL),totalDiscount,priceAfterDiscount(FULL),newArrival,sale,stock)&lang=en&curr=INR"
 export const FAB_INDIA_URL = "https://apisap.fabindia.com"
+
+
+export const shimmer_card_unit = 8;

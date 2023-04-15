@@ -1,5 +1,4 @@
 import { useState, useContext } from "react";
-import Logo from "../assets/img/44157695.jpg";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import UserContext from "../utils/UserContext";
@@ -36,11 +35,16 @@ const Header = () => {
       
       <div className="h-20 bg-stone-300 text-neutral-950 shadow-md mb-1">
         <div className="nav-items">
-          <ul className="flex flex-wrap py-8">
+          <ul className="flex justify-between py-8">
             {/* <li><Logo/></li> */}
             <li className="px-6 text-3xl font-bold"><Link to="/">Coconut</Link></li>
-            <li className="font-bold px-2" data-testid="cart"> Cart- {cartItems.length} items</li>
-            <li>{user.name}</li>
+            <li>
+              <ul className="flex flex-wrap">
+              <li>{user.name}</li>
+              <li className="font-bold px-2" data-testid="cart"> Cart-{cartItems.length} items</li>
+              </ul>
+            </li>
+            
           </ul>
         </div>
       </div>

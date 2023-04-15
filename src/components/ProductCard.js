@@ -1,4 +1,4 @@
-import {FAB_INDIA_URL} from "../../constants.js"
+import {FAB_INDIA_URL} from "../../constants"
 
 
 const ProductCard =({code, name, images, price})=>{

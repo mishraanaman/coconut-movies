@@ -69,9 +69,6 @@ const Women= () =>{
     }
   };
     if (!allProducts) return null;
-  
-  
-  
    
   return(
   <>
@@ -87,7 +84,7 @@ const Women= () =>{
             onChange={(e) => setSearchText(e.target.value)}
           ></input>
           <button
-            className="search-btn rounded-lg bg-stone-300 hover:bg-stone-400 p-2"
+            className="search-btn rounded-lg bg-zinc-50 text-stone-500 hover:bg-zinc-200 p-2"
             onClick={() => {
               // user click on button searchData function is called
               searchData(searchText, allProducts);
@@ -98,7 +95,6 @@ const Women= () =>{
   
         {errorMessage && <div className="error-container">{errorMessage}</div>}
         </div>
-    
   
   <ul className="flex flex-wrap ">
 
@@ -106,12 +102,14 @@ const Women= () =>{
   const { code, name, images, price } = product;
 
   return (
-    <ProductCard
-      id={code}
-      name ={name}
-      images={images}
-      price={price}
-    />
+    <Link to={"/products/" + code}key={code}>
+        <ProductCard
+        id={code}
+        name ={name}
+        images={images}
+        price={price}
+        />
+    </Link>
   );
 })}
 

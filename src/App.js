@@ -64,10 +64,10 @@ const appRouter = createBrowserRouter([
         path: "/women",
         element: <Women />,
       },
-      // {
-      //   path: "/products/:prodId",
-      //   element: <ProductMenu />,
-      // },
+      {
+        path: "/products/:prodId",
+        element: <ProductMenu />,
+      },
     ],
   },
   // {
