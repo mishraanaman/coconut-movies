@@ -1,7 +1,6 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { products , FAB_INDIA_API} from "../../constants";
 import { filterData } from "../utils/helper";
-import { useEffect } from "react";
 import { addItem } from "../utils/cartSlice";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";

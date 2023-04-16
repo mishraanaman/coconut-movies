@@ -3,10 +3,6 @@ import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
-import {products} from "../../constants"
-import { useState, createContext } from "react";
-import ReactDOM from "react-dom/client";
-import { useSelector } from "react-redux";
 
 
 
@@ -41,7 +37,7 @@ const Header = () => {
             <li>
               <ul className="flex flex-wrap">
               <li>{user.name}</li>
-              <li className="font-bold px-2" data-testid="cart"> Cart-{cartItems.length} items</li>
+              <li className="font-bold px-2" data-testid="cart"> <Link to="/cart">Cart-{cartItems.length} items</Link></li>
               </ul>
             </li>
             

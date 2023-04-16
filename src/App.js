@@ -12,6 +12,7 @@ import UserContext from "./utils/UserContext";
 import Store  from "./utils/store";
 import Men from "./components/Men"; 
 import Women from "./components/Women";
+import Cart from "./components/Cart";
 
 
 
@@ -68,8 +69,14 @@ const appRouter = createBrowserRouter([
         path: "/products/:prodId",
         element: <ProductMenu />,
       },
+      {
+        path: "/cart",
+        element: <Cart />,
+        errorElement: <Error />
+      },
     ],
   },
+   
   // {
   //   path: "/login",
   //   element: <Login />,

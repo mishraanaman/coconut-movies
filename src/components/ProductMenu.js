@@ -5,20 +5,9 @@ import ProductImage from "../assets/img/20091487-01.jpg"
 import Shimmer from "./Shimmer";
 import { useDispatch } from "react-redux"
 import { addItem, removeItem } from "../utils/cartSlice";
+import { product_demo } from "../../constants";
 
-const product_demo = {
-    "name": "Beige Cotton Kalamkari",
-    "tags": ["cotton", "beige"],
-    "avgRating": 4.2,
-    "cost": "1700",
-    "menu": {
-        "items": {
-            "pink": 2,
-        }
-    },
-    "description":"Create an extremely classy festive look with this slim-fit long kurta. Tailored to sartorial perfection from cotton, it assures a soft and soothing touch against the skin. The Chinese collar with the front button placket adds to its appeal. The roll-up sleeves with cuffs further speak for themselves. The hand-block printed pattern makes it an eccentric choice. Pair it with a churidar or pyjama with jutties for a complete look.",
-    "specification":"Green Kurta Fabric: The kurta will be made from high-quality cotton, silk or linen fabric. The fabric will be lightweight, comfortable and breathable.Color: The kurta will be in a bright and refreshing shade of green. The green color will be vibrant, rich and long-lasting.Design: The kurta will have a simple and elegant design that reflects the traditional and cultural aspects of Indian attire. It will have a classic collar, full-length sleeves and a straight hemline.     Sizes: The kurta will be available in a range of sizes to fit different body types. The sizes will range from small to XXL."
-}
+
 const ProductMenu = () => {
     const { prodId } = useParams(); // call useParams and get value of product id using object destructuring
     console.log({ prodId })
@@ -30,7 +19,7 @@ const ProductMenu = () => {
     const dispatch = useDispatch();
 
     const handleAddItem = () => {
-        dispatch(addItem("Grapes"))
+        dispatch(addItem(product.name))
     }
 
     const handleRemoveItem = () => {

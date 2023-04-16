@@ -1,6 +1,5 @@
-import Women from "./Women";
-import Men from "./Men"
 import Banner from "./Banner";
+import { HOME_PAGE_DESCRIPTION } from "../../constants";
 /**
  * 
  * Create dark theme using useContext
@@ -13,7 +12,7 @@ const Body = () => {
     <>
       <ul>
         <li><Banner /></li>
-        <li><h1 className="py-20">Welcome to Coconout, your own sustainable fashion brand that embodies sensible clothing</h1></li>
+        <li><h1 className="py-10"></h1>{HOME_PAGE_DESCRIPTION}</li>
       </ul>
     </>
   )
