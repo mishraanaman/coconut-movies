@@ -1,6 +1,6 @@
 
 const About=()=>{
-    return(<p>lorem50 </p>)
+    return(<p className="min-h-screen">lorem50 </p>)
 }
 
 

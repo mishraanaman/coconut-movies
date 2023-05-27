@@ -68,7 +68,7 @@ const Men = () => {
     <>
       <Banner />
 
-      <div className="search-container flex justify-end">
+      <div className="search-container flex justify-end p-2">
         <input
           type="text"
           className="search-input p-2 m-2"
