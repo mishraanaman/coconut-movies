@@ -38,7 +38,7 @@ export const FAB_INDIA_URL = "https://apisap.fabindia.com"
 
 export const shimmer_card_unit = 8;
 
-export const HOME_PAGE_DESCRIPTION="Welcome to Coconut, your premier destination for sustainable and stylish clothing. At Coconut, we believe that fashion can and should be both sensibly made and chic. That's why we've made it our mission to create a collection of clothing that not only looks great, but is also made with the environment in mind."
+export const ABOUT_US="Welcome to Coconut, your premier destination for sustainable and stylish clothing. At Coconut, we believe that fashion can and should be both sensibly made and chic. That's why we've made it our mission to create a collection of clothing that not only looks great, but is also made with the environment in mind."
 
 export const product_demo = {
   "name": "Beige Cotton Kalamkari",

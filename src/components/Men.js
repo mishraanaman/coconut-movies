@@ -37,9 +37,6 @@ const Men = () => {
 
       })
       .catch(error => console.error(error));
-    // const data = await fetch(swiggy_api_URL);
-    // const json = await data.json();
-    // updated state variable restaurants with Swiggy API data
   }
 
 

@@ -13,6 +13,7 @@ import Store  from "./utils/store";
 import Men from "./components/Men"; 
 import Women from "./components/Women";
 import Cart from "./components/Cart";
+import RunningBanner from "./components/RunningBanner";
 
 
 
@@ -26,6 +27,7 @@ const [user, setUser] = useState({name: "Naman Mishra", email: "reachoutnaman@gm
     <>
     <Provider store ={Store}>
     <UserContext.Provider value ={{user: user, setUser: setUser}} >
+    {/* <RunningBanner/> */}
     <Header/>
     <Outlet/>
     <Footer/>
