@@ -29,15 +29,15 @@ const Header = () => {
   return (
     <>
       
-      <div className="h-20 bg-stone-300 text-neutral-950 shadow-md mb-1">
+      <div className="h-10 bg-stone-300 text-neutral-950 shadow-md mb-1 px-4">
         <div className="nav-items">
-          <ul className="flex justify-between py-8">
+          <ul className="flex justify-between py-1">
             {/* <li><Logo/></li> */}
-            <li className="px-6 text-3xl font-bold"><Link to="/">Coconut</Link></li>
+            <li className="text-3xl font-bold"><Link to="/">Coconut</Link></li>
             <li>
-              <ul className="flex flex-wrap">
+              <ul className="flex flex-wrap py-1">
               <li>{user.name}</li>
-              <li className="font-bold px-2" data-testid="cart"> <Link to="/cart">Cart-{cartItems.length} items</Link></li>
+              <li className="font-bold px-4" data-testid="cart"> <Link to="/cart">Cart-{cartItems.length} items</Link></li>
               </ul>
             </li>
             

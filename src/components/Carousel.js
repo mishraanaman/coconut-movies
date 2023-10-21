@@ -24,26 +24,38 @@ const Carousel = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex === 2 ? 0 : prevIndex + 1));
+      setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
     }, 3000); // Switch images every 3 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [images]);
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+  };
+
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+  };
 
   return (
-    <div className="carousel relative w-2000 h-600 overflow-hidden p-10">
+    <div className="carousel relative w-100 h-80 overflow-hidden my-10">
       <div className="w-full h-full flex">
         {images.map((imageUrl, index) => (
           <img
             key={index}
             src={imageUrl}
             alt="Clothes"
-            className={`w-2000 h-6000 absolute transition-opacity duration-1000 opacity-${
-              index === currentIndex ? '100' : '0'
-            } group-hover:opacity-100`}
+            className={`w-full h-full absolute transition-opacity duration-1000 ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
           />
         ))}
       </div>
+      <button className="prev-button absolute top-1/2 left-0 transform -translate-y-1/2 px-2" onClick={goToPrevious}>
+        &lt;
+      </button>
+      <button className="next-button absolute top-1/2 right-0 transform -translate-y-1/2 px-2" onClick={goToNext}>
+        &gt;
+      </button>
     </div>
   );
 };
