@@ -76,14 +76,14 @@ const Women= () =>{
   <div className="search-container flex justify-end">
           <input
             type="text"
-            className="search-input p-2 m-2"
+            className="search-input"
             placeholder="Search"
             value={searchText}
             // update the state variable searchText when we typing in input box
             onChange={(e) => setSearchText(e.target.value)}
           ></input>
           <button
-            className="search-btn rounded-lg bg-zinc-50 text-stone-500 hover:bg-zinc-200 p-2"
+            className="search-btn rounded-lg bg-zinc-50 text-stone-500 hover:bg-zinc-200 px-1 h-7"
             onClick={() => {
               // user click on button searchData function is called
               searchData(searchText, allProducts);

@@ -5,8 +5,11 @@ import { Link } from "react-router-dom";
 import Banner from "./Banner";
 import ProductCard from "./ProductCard";
 
-const Men = () => {
-  [searchText, setSearchText] = useState("");
+
+const Section = (props) => {
+
+  const {product_codes} = props
+  const [searchText, setSearchText] = useState("");
   const [allProducts, setAllProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
@@ -21,14 +24,7 @@ const Men = () => {
 
     const url = FAB_INDIA_API;
     const data = {
-      "productCodes": [
-        "20106592",
-        "20120393",
-        "20121852",
-        "20121981",
-        "20121833",
-        "20109731"
-      ]
+      "productCodes": product_codes
     };
     postData(url, data)
       .then(response => {
@@ -61,17 +57,17 @@ const Men = () => {
     <>
       <Banner />
 
-      <div className="search-container flex justify-end px-2">
+      <div className="search-container flex justify-end p-2">
         <input
           type="text"
-          className="search-input"
+          className="search-input p-2 m-2"
           placeholder="Search"
           value={searchText}
           // update the state variable searchText when we typing in input box
           onChange={(e) => setSearchText(e.target.value)}
         ></input>
         <button
-          className="search-btn rounded-lg bg-zinc-50 text-stone-500 hover:bg-zinc-200 px-1 h-7"
+          className="search-btn rounded-lg bg-zinc-50 text-stone-500 hover:bg-zinc-200 px-2"
           onClick={() => {
             // user click on button searchData function is called
             searchData(searchText, allProducts);
@@ -107,4 +103,4 @@ const Men = () => {
 
 }
 
-export default Men;
+export default Section;
