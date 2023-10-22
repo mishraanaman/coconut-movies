@@ -14,15 +14,12 @@ Welcome to the Coconut Indian Fashion Bazaar, your one-stop destination for expl
 
 - **Shopping Cart:** Easily add items to your cart, review your selections, and proceed to checkout.
 
-- **Secure Payments:** Make safe and convenient online payments for your chosen items.
-
-- **Order Tracking:** Monitor the status of your orders and receive updates on their delivery.
 
 ## Technologies Used
 
 - **React:** The project is built using the React library, providing a smooth and responsive user interface.
 
-- **Firebase:** Firebase is used for user authentication, database management, and hosting.
+- **Redux Toolkit:** Used for manage the application's state in a centralized way
 
 - **[Additional Libraries/Frameworks Used]**: List any additional libraries or frameworks you've used, e.g., Redux for state management, Tailwind for styling, etc.
 
@@ -32,4 +29,4 @@ Follow these steps to get a copy of the project up and running on your local mac
 
 1. **Clone the Repository:**
    ```sh
-   git clone https://github.com/your-username/ethnic-indian-fashion-bazaar.git
+   git clone https://github.com/namanmish/coconut-fashion.git
