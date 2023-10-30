@@ -23,7 +23,11 @@ const Header = () => {
   const { user } = useContext(UserContext);
 
   const cartItems = useSelector((store) => store.cart.items);
-  //console.log(cartItems);
+  console.log(cartItems);
+
+  const changeLoginStatus = (isLoggedIn)=>{
+    setIsLoggedIn(!isLoggedIn)
+  }
 
 
   return (
@@ -38,6 +42,10 @@ const Header = () => {
               <ul className="flex flex-wrap py-1">
               <li>{user.name}</li>
               <li className="font-bold px-4" data-testid="cart"> <Link to="/cart">Cart-{cartItems.length} items</Link></li>
+              <li className="font-bold px-4" data-testid="button"> <button className = "border border-blue-500 bg-white text-blue-500 font-semibold py-1 px-2 rounded" onClick={()=>{
+                changeLoginStatus(isLoggedIn);
+                console.log('clicked', isLoggedIn)
+                }}>{isLoggedIn?'LogIn':'LogOut'}</button></li>
               </ul>
             </li>
             
