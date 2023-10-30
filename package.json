@@ -1,11 +1,11 @@
 {
   "name": "coconut-fashion",
   "version": "1.0.0",
-  "description": "Website for Sustainable Fashion Brand",
-  "main": "index.js",
+  "description": "Website for Ethnic Indian Fashion Brand",
   "scripts": {
     "test": "jest",
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "build":"parcel build index.html"
   },
   "repository": {
     "type": "git",
