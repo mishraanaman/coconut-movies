@@ -4,3 +4,4 @@ frontend/.parcel-cache/
 .parcel-cache/
 backend/node_modules
 backend/.env
+frontend/dist
