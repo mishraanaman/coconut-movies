@@ -36635,23 +36635,22 @@ const Body = ()=>{
                     width: "100%",
                     height: "100%",
                     zIndex: -1,
-                    pointerEvents: "none",
-                    backgroundColor: "#111111"
+                    pointerEvents: "none"
                 },
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lightRaysDefault.default), {
                     raysOrigin: "top-center",
-                    raysColor: "#e6e2eaff",
-                    raysSpeed: 1.5,
-                    lightSpread: 0.9,
-                    rayLength: 1.2,
+                    raysColor: "#f7f3f1ff",
+                    raysSpeed: 3,
+                    lightSpread: 4,
+                    rayLength: 4,
                     followMouse: true,
                     mouseInfluence: 0.1,
-                    noiseAmount: 0.5,
+                    noiseAmount: 2.0,
                     distortion: 0.05,
                     className: "custom-rays"
                 }, void 0, false, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 26,
+                    lineNumber: 25,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
@@ -36667,15 +36666,21 @@ const Body = ()=>{
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bannerDefault.default), {}, void 0, false, {
                         fileName: "src/components/Body.js",
+                        lineNumber: 40,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _carouselDefault.default), {}, void 0, false, {
+                        fileName: "src/components/Body.js",
                         lineNumber: 41,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "flex flex-wrap justify-center py-2 px-4",
                         children: results && results.length > 0 ? results.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieDefault.default), {
                                 movie: movie
                             }, movie._id, false, {
                                 fileName: "src/components/Body.js",
-                                lineNumber: 47,
+                                lineNumber: 46,
                                 columnNumber: 36
                             }, undefined)) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                             style: {
@@ -36685,18 +36690,18 @@ const Body = ()=>{
                             children: "No results yet"
                         }, void 0, false, {
                             fileName: "src/components/Body.js",
-                            lineNumber: 49,
+                            lineNumber: 48,
                             columnNumber: 13
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 45,
+                        lineNumber: 44,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Body.js",
-                lineNumber: 40,
+                lineNumber: 39,
                 columnNumber: 7
             }, undefined)
         ]
@@ -36821,25 +36826,27 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _s = $RefreshSig$();
-const UNSPLASH_API_KEY = "Qw_7gw7afrYWAC21MmOgy4vsUJVUyTuQnKSjBhI2OGk";
-const UNSPLASH_API_URL = `https://api.unsplash.com/search/photos?query=clothes&client_id=${UNSPLASH_API_KEY}&per_page=5`;
+const MOVIES_API_URL = "http://localhost:3000/v1/movies/posters/?limit=7"; // adjust endpoint to return 7 movies
 const Carousel = ()=>{
     _s();
     const [images, setImages] = (0, _react.useState)([]);
     const [currentIndex, setCurrentIndex] = (0, _react.useState)(0);
-    // Fetch images from Unsplash
+    // Fetch images from your movie API
     (0, _react.useEffect)(()=>{
-        const fetchImages = async ()=>{
+        const fetchMovies = async ()=>{
             try {
-                const response = await fetch(UNSPLASH_API_URL);
+                const response = await fetch(MOVIES_API_URL);
                 const data = await response.json();
-                const urls = data.results.map((r)=>r.urls.regular);
+                // extract poster URLs
+                const urls = data.filter((movie)=>movie.poster) // only take movies with poster field
+                .slice(0, 7) // take 7 movies
+                .map((movie)=>movie.poster);
                 setImages(urls);
             } catch (error) {
-                console.error("Error fetching images:", error);
+                console.error("Error fetching movies:", error);
             }
         };
-        fetchImages();
+        fetchMovies();
     }, []);
     // Auto-slide every 3s
     (0, _react.useEffect)(()=>{
@@ -36854,64 +36861,64 @@ const Carousel = ()=>{
     const handleNext = ()=>setCurrentIndex((prev)=>(prev + 1) % images.length);
     if (images.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "flex justify-center items-center h-80 text-gray-500",
-        children: "Loading images..."
+        children: "Loading movies..."
     }, void 0, false, {
         fileName: "src/components/Carousel.js",
-        lineNumber: 44,
+        lineNumber: 50,
         columnNumber: 7
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "relative w-full h-80 max-w-4xl mx-auto overflow-hidden rounded-2xl shadow-lg group pt-4",
+        className: "relative w-[450px] h-[750px] mx-auto overflow-hidden rounded-[40px] shadow-2xl group pt-4",
         children: [
             images.map((imageUrl, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                     src: imageUrl,
                     alt: `Slide ${index + 1}`,
-                    className: `absolute w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${index === currentIndex ? "opacity-100" : "opacity-0"}`
+                    className: `absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${index === currentIndex ? "opacity-100" : "opacity-0"}`
                 }, index, false, {
                     fileName: "src/components/Carousel.js",
-                    lineNumber: 54,
-                    columnNumber: 9
+                    lineNumber: 60,
+                    columnNumber: 5
                 }, undefined)),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 onClick: handlePrev,
-                className: "absolute left-3 top-1/2 transform -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 rounded-full p-2 shadow-md transition-opacity opacity-0 group-hover:opacity-100",
+                className: "absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 rounded-full p-4 shadow-lg transition-opacity opacity-0 group-hover:opacity-100",
                 "aria-label": "Previous",
                 children: "<"
             }, void 0, false, {
                 fileName: "src/components/Carousel.js",
-                lineNumber: 64,
-                columnNumber: 7
+                lineNumber: 71,
+                columnNumber: 3
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 onClick: handleNext,
-                className: "absolute right-3 top-1/2 transform -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 rounded-full p-2 shadow-md transition-opacity opacity-0 group-hover:opacity-100",
+                className: "absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 rounded-full p-4 shadow-lg transition-opacity opacity-0 group-hover:opacity-100",
                 "aria-label": "Next",
                 children: ">"
             }, void 0, false, {
                 fileName: "src/components/Carousel.js",
-                lineNumber: 72,
-                columnNumber: 7
+                lineNumber: 79,
+                columnNumber: 3
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2",
                 children: images.map((_, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         onClick: ()=>setCurrentIndex(index),
-                        className: `h-2.5 w-2.5 rounded-full transition-all ${index === currentIndex ? "bg-white scale-125" : "bg-white/50 hover:bg-white/70"}`,
+                        className: `h-3 w-3 rounded-full transition-all ${index === currentIndex ? "bg-white scale-125" : "bg-white/50 hover:bg-white/70"}`,
                         "aria-label": `Go to slide ${index + 1}`
                     }, index, false, {
                         fileName: "src/components/Carousel.js",
-                        lineNumber: 83,
-                        columnNumber: 11
+                        lineNumber: 90,
+                        columnNumber: 7
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/components/Carousel.js",
-                lineNumber: 81,
-                columnNumber: 7
+                lineNumber: 88,
+                columnNumber: 3
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Carousel.js",
-        lineNumber: 51,
+        lineNumber: 57,
         columnNumber: 1
     }, undefined);
 };
@@ -36926,7 +36933,7 @@ $RefreshReg$(_c, "Carousel");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"bKfvJ":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bKfvJ":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$d91a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$d91a.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -41291,19 +41298,26 @@ const Movie = ({ movie })=>{
             borderRadius: "8px",
             padding: "16px",
             margin: "8px",
-            maxWidth: "300px",
-            backgroundColor: "#1a1a1a",
-            color: "#fff"
+            minWidth: "300px",
+            backgroundColor: "#373535ff",
+            color: "#fff",
+            minHeight: "400px",
+            fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+            lineHeight: "1.2"
         },
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                 style: {
-                    margin: "0 0 8px 0"
+                    fontSize: "1.5rem",
+                    margin: "0 0 8px 0",
+                    minHeight: "48px",
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: "vertical"
                 },
                 children: movie.title
             }, void 0, false, {
                 fileName: "src/components/Movie.js",
-                lineNumber: 17,
+                lineNumber: 20,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -41313,13 +41327,26 @@ const Movie = ({ movie })=>{
                         children: movie.imdb?.rating ?? "N/A"
                     }, void 0, false, {
                         fileName: "src/components/Movie.js",
-                        lineNumber: 19,
+                        lineNumber: 22,
                         columnNumber: 22
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                        fileName: "src/components/Movie.js",
+                        lineNumber: 23,
+                        columnNumber: 9
+                    }, undefined),
+                    "Search Score: ",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                        children: movie.score?.toFixed(2) ?? "N/A"
+                    }, void 0, false, {
+                        fileName: "src/components/Movie.js",
+                        lineNumber: 24,
+                        columnNumber: 23
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Movie.js",
-                lineNumber: 18,
+                lineNumber: 21,
                 columnNumber: 7
             }, undefined)
         ]

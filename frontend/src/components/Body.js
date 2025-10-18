@@ -9,7 +9,7 @@ const Body = () => {
   const { results } = useOutletContext() || { results: [] }; // fallback if not using Outlet context
 
   return (
-    <div style={{ position: "relative", width: "100%", minHeight: "100vh" }}>
+    <div style={{ position: "relative", width: "100%", minHeight: "100vh"}}>
       {/* Light rays background */}
       <div
         style={{
@@ -20,18 +20,17 @@ const Body = () => {
           height: "100%",
           zIndex: -1,
           pointerEvents: "none",
-          backgroundColor: "#111111",
         }}
       >
         <LightRays
           raysOrigin="top-center"
-          raysColor="#e6e2eaff"
-          raysSpeed={1.5}
-          lightSpread={0.9}
-          rayLength={1.2}
+          raysColor="#f7f3f1ff"
+          raysSpeed={3}
+          lightSpread={4}
+          rayLength={4}
           followMouse={true}
           mouseInfluence={0.1}
-          noiseAmount={0.5}
+          noiseAmount={2.0}
           distortion={0.05}
           className="custom-rays"
         />
@@ -39,10 +38,10 @@ const Body = () => {
 
       <div style={{ position: "relative", zIndex: 1 }}>
         <Banner />
-        {/* <Carousel /> */}
+        <Carousel />
 
         {/* Render search results */}
-        <div>
+        <div className="flex flex-wrap justify-center py-2 px-4">
           {results && results.length > 0 ? (
             results.map((movie) => <Movie key={movie._id} movie={movie} />)
           ) : (
