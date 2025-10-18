@@ -6,7 +6,7 @@ import Banner from "./Banner";
 import ProductCard from "./ProductCard";
 
 const Men = () => {
-  [searchText, setSearchText] = useState("");
+  const [searchText, setSearchText] = useState("");
   const [allProducts, setAllProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");

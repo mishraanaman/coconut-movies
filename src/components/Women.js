@@ -10,7 +10,7 @@ import { postData } from "../utils/helper";
 
 
 const Women= () =>{
-    [searchText, setSearchText] = useState("");
+    const [searchText, setSearchText] = useState("");
     const [allProducts, setAllProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [errorMessage, setErrorMessage] = useState("");
