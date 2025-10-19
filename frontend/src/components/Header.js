@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
+import SearchBar from "./SearchBar";
 
 const Header = ({ onSearch }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -29,23 +30,8 @@ const Header = ({ onSearch }) => {
       {/* Logo */}
       <Link to="/" className="text-3xl font-bold">Coconut</Link>
 
-      {/* Search bar */}
-      <div className="flex w-full max-w-3xl mx-4">
-        <input
-          type="text"
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-          onKeyDown={handleKeyPress}
-          placeholder="Search movies, actors and more"
-          className="flex-grow py-2 px-4 rounded-l-md border border-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm"
-        />
-        <button
-          onClick={handleSearch}
-          className="px-4 bg-red-500 hover:bg-yellow-500 text-black font-semibold rounded-r-md transition-colors"
-        >
-          Search
-        </button>
-      </div>
+      {/* ✅ Reusable Search Bar */}
+      <SearchBar onSearch={onSearch} />
 
       {/* User info and cart */}
       <div className="flex items-center space-x-4">
