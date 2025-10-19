@@ -14,28 +14,30 @@ import Contact from "./components/Contact";
 import Men from "./components/Men";
 import Women from "./components/Women";
 import Cart from "./components/Cart";
+import SearchResults from "./components/SearchResults";
+import Error from "./components/Error";
 
 const AppLayout = () => {
   const [user, setUser] = useState({ name: "Naman Mishra", email: "reachoutnaman@gmail.com" });
   const [results, setResults] = useState([]); // store search results
 
-  // Search handler passed to Header
-  const handleSearch = async (query) => {
-    try {
-      const res = await fetch(`http://localhost:3000/v1/movies/search/?q=${encodeURIComponent(query)}`);
-      if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-      const data = await res.json();
-      setResults(data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  // // Search handler passed to Header
+  // const handleSearch = async (query) => {
+  //   try {
+  //     const res = await fetch(`http://localhost:3000/v1/movies/search/?q=${encodeURIComponent(query)}`);
+  //     if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+  //     const data = await res.json();
+  //     setResults(data);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
 
   return (
     <Provider store={Store}>
       <UserContext.Provider value={{ user, setUser }}>
-        <Header onSearch={handleSearch} />
-        <Outlet context={{ results }} /> {/* Optional if you want nested route to access results */}
+        <Header/>{/* <Header onSearch={handleSearch} /> */}
+        <Outlet /> {/* Nested routes */}
         <Footer />
       </UserContext.Provider>
     </Provider>
@@ -49,6 +51,7 @@ const appRouter = createBrowserRouter([
     errorElement: <Error />,
     children: [
       { path: "/", element: <Body /> },
+      { path: "/search", element: <SearchResults /> },
       { path: "/about", element: <About /> },
       { path: "/contact", element: <Contact /> },
       { path: "/men", element: <Men /> },

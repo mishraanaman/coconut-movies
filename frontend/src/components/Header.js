@@ -5,7 +5,8 @@ import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 import SearchBar from "./SearchBar";
 
-const Header = ({ onSearch }) => {
+//const Header = ({ onSearch }) => {
+const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [searchText, setSearchText] = useState("");
 
@@ -29,10 +30,8 @@ const Header = ({ onSearch }) => {
     <div className="h-12 bg-stone-400 text-neutral-950 shadow-md mb-1 px-4 flex items-center justify-between">
       {/* Logo */}
       <Link to="/" className="text-3xl font-bold">Coconut</Link>
-
-      {/* ✅ Reusable Search Bar */}
-      <SearchBar onSearch={onSearch} />
-
+      <SearchBar/>      {/* <SearchBar onSearch={onSearch} /> */}
+      
       {/* User info and cart */}
       <div className="flex items-center space-x-4">
         <span>{user.name}</span>

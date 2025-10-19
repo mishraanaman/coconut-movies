@@ -1,14 +1,18 @@
 // src/components/SearchBar.jsx
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const SearchBar = ({ onSearch }) => {
   const [searchText, setSearchText] = useState("");
+  const navigate = useNavigate();
 
   const handleSearch = () => {
-    if (onSearch) onSearch(searchText);
-    console.log("Search clicked:", searchText);
+    if (searchText.trim()) {
+      // Navigate to /search page with query param
+      navigate(`/search?q=${encodeURIComponent(searchText)}`);
+    }
   };
-
   const handleKeyPress = (e) => {
     if (e.key === "Enter") handleSearch();
   };

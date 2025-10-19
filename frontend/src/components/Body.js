@@ -2,13 +2,8 @@ import { useState, useEffect } from "react";
 import Banner from "./Banner";
 import Carousel from "./Carousel";
 import LightRays from "./LightRays";
-import Movie from "./Movie";
-import { useOutletContext } from "react-router-dom";
 
 const Body = () => {
-  const { results } = useOutletContext() || { results: [] }; // fallback if not using Outlet context
-  const hasResults = results && results.length > 0;
-
 
   return (
     <div style={{ position: "relative", width: "100%", minHeight: "100vh"}}>
@@ -40,17 +35,7 @@ const Body = () => {
 
       <div style={{ position: "relative", zIndex: 1 }}>
         <Banner />
-         {/* Show Carousel only if no search results */}
-        {!hasResults && <Carousel />}
-
-        {/* Render search results */}
-        <div className="flex flex-wrap justify-center py-2 px-4">
-          {results && results.length > 0 ? (
-            results.map((movie) => <Movie key={movie._id} movie={movie} />)
-          ) : (
-            <p style={{ color: "white", textAlign: "center" }}>No results yet</p>
-          )}
-        </div>
+        <Carousel />
       </div>
     </div>
   );
