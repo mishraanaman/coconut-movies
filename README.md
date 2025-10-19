@@ -1,6 +1,6 @@
-# Coconut Movies 🎬
+# Mongo Mflix 🎬
 
-Coconut Movies is a platform to discover movies and shows. It is built using **React**, **Express**, and **MongoDB Atlas**. The project has two folders: `frontend` and `backend`.
+Mongo Mflix is a platform to discover movies and shows. It is built using **MongoDB Atlas**, **React** and **Express**. The project has two folders: `frontend` and `backend`.
 
 ---
 
@@ -50,9 +50,9 @@ http://localhost:1234
 
 ## Technologies Used
 
+- **MongoDB Atlas** — Multi Cloud database.
 - **React** — For building a responsive UI.
 - **Express.js** — Backend API.
-- **MongoDB Atlas** — Cloud database.
 - **Redux Toolkit** — Application state management.
 - **Tailwind CSS** — Styling (if used).
 - **Other libraries** — Axios, React Router, etc.
