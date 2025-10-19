@@ -6,7 +6,7 @@ import LightRays from "./LightRays";
 const Body = () => {
 
   return (
-    <div style={{ position: "relative", width: "100%", minHeight: "100vh"}}>
+    <div style={{ position: "relative", width: "100%", minHeight: "100vh" }}>
       {/* Light rays background */}
       <div
         style={{
@@ -16,18 +16,18 @@ const Body = () => {
           width: "100%",
           height: "100%",
           zIndex: -1,
-          pointerEvents: "none",
+          pointerEvents: "none", backgroundColor: "#ffffffff"
         }}
       >
         <LightRays
-          raysOrigin="top-center"
-          raysColor="#f7f3f1ff"
-          raysSpeed={3}
-          lightSpread={4}
-          rayLength={4}
+          raysOrigin="bottom-center"
+          raysColor="#ffffffff"
+          raysSpeed={2}
+          lightSpread={2}
+          rayLength={1.2}
           followMouse={true}
           mouseInfluence={0.1}
-          noiseAmount={2.0}
+          noiseAmount={1}
           distortion={0.05}
           className="custom-rays"
         />

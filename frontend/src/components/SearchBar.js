@@ -72,7 +72,7 @@ const SearchBar = () => {
       />
       <button
         onClick={() => handleSearch()}
-        className="px-4 bg-red-500 hover:bg-green-700 text-white font-semibold rounded-r-md transition-colors"
+        className="px-4 bg-[#00684A] hover:bg-[#023430] text-[#ffffff] font-semibold rounded-r-md transition-colors"
       >
         Search
       </button>
