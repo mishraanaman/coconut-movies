@@ -17,7 +17,20 @@ const Movie = ({ movie }) => {
         lineHeight: "1.2",
       }}
     >
-      <h2 style={{   fontSize: "1.5rem", margin: "0 0 8px 0", minHeight: "48px",WebkitLineClamp: 2, WebkitBoxOrient: "vertical" }}>{movie.title}</h2>
+       {/* Poster */}
+      {movie.poster && (
+        <img
+          src={movie.poster}
+          alt={movie.title}
+          style={{
+            height: "350px", // standardized height
+            objectFit: "cover",   // maintain aspect ratio, crop if needed
+            borderRadius: "5px",
+            marginBottom: "12px",
+          }}
+        />
+      )}
+      <h2 style={{   fontSize: "1 rem", margin: "0 0 5px 0", minHeight: "48px",WebkitLineClamp: 2, WebkitBoxOrient: "vertical" }}>{movie.title}</h2>
       <p>
         IMDb Rating: <strong>{movie.imdb?.rating ?? "N/A"}</strong>
         <br />

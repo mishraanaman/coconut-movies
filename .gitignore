@@ -7,3 +7,5 @@ backend/.DS_Store
 backend/node_modules/
 backend/.env
 backend/src/.DS_Store
+
+.DS_Store

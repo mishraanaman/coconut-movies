@@ -7,6 +7,8 @@ import { useOutletContext } from "react-router-dom";
 
 const Body = () => {
   const { results } = useOutletContext() || { results: [] }; // fallback if not using Outlet context
+  const hasResults = results && results.length > 0;
+
 
   return (
     <div style={{ position: "relative", width: "100%", minHeight: "100vh"}}>
@@ -38,7 +40,8 @@ const Body = () => {
 
       <div style={{ position: "relative", zIndex: 1 }}>
         <Banner />
-        <Carousel />
+         {/* Show Carousel only if no search results */}
+        {!hasResults && <Carousel />}
 
         {/* Render search results */}
         <div className="flex flex-wrap justify-center py-2 px-4">

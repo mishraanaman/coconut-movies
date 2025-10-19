@@ -65,9 +65,3 @@ http://localhost:1234
 - Search movies with real-time results.
 - Display IMDb ratings and search scores.
 - Smooth UI with light ray effects and carousel display.
-
----
-
-## License
-
-Open-source under the [MIT Lic

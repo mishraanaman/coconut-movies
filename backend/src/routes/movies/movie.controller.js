@@ -21,10 +21,17 @@ const searchMovies = async (req, res) => {
         {
           $search: {
             index: "default", // Atlas search index
-            text: { query, path: ["title"] },
+            autocomplete: {
+              query,
+              path: "title",
+              fuzzy: {
+                maxEdits: 2,      // allow up to 2 typos
+                prefixLength: 1,  // require first character to match exactly
+              },
+            },
           },
         },
-        { $project: { title: 1, imdb: 1, score: { $meta: "searchScore" } } },
+        { $project: { title: 1, imdb: 1, poster: 1,score: { $meta: "searchScore" } } },
         { $limit: 10 },
       ])
       .toArray();
