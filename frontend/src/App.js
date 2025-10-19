@@ -11,7 +11,6 @@ import Footer from "./components/Footer";
 import Body from "./components/Body";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import ProductMenu from "./components/ProductMenu";
 import Men from "./components/Men";
 import Women from "./components/Women";
 import Cart from "./components/Cart";
@@ -54,7 +53,6 @@ const appRouter = createBrowserRouter([
       { path: "/contact", element: <Contact /> },
       { path: "/men", element: <Men /> },
       { path: "/women", element: <Women /> },
-      { path: "/products/:prodId", element: <ProductMenu /> },
       { path: "/cart", element: <Cart /> },
     ],
   },

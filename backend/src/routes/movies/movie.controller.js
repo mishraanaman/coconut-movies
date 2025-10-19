@@ -24,7 +24,7 @@ const searchMovies = async (req, res) => {
             text: { query, path: ["title"] },
           },
         },
-        { $project: { title: 1, imdb: 1 } },
+        { $project: { title: 1, imdb: 1, score: { $meta: "searchScore" } } },
         { $limit: 10 },
       ])
       .toArray();
@@ -38,4 +38,25 @@ const searchMovies = async (req, res) => {
   }
 };
 
-module.exports = { searchMovies };
+const getMoviePoster = async (req, res) => {
+    const query = req.query.q || "";
+
+  try {
+    await client.connect();
+    const collection = client.db(dbName).collection(collectionName);
+
+    const results = await collection
+      .find({  poster: {$exists: true, $ne: "" }})
+      .sort({ released: -1 }).limit(7).project({poster:1})
+      .toArray();
+
+    res.json(results);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error fetching Posters");
+  } finally {
+    await client.close();
+  }
+}
+
+module.exports = { searchMovies, getMoviePoster };
