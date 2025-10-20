@@ -1,32 +1,67 @@
-# Coconut Indian Fashion Bazaar
+# Mongo Mflix 🎬
 
-Welcome to the Coconut Indian Fashion Bazaar, your one-stop destination for exploring and purchasing exquisite ethnic Indian fashion items. This web application showcases a diverse collection of clothing, accessories, and more, all inspired by the rich and vibrant traditions of India.
+Mongo Mflix is a platform to discover movies and shows. It is built using **MongoDB Atlas**, **React** and **Express**. The project has two folders: `frontend` and `backend`.
 
-![Website Preview](link-to-your-image.png)
-
-## Features
-
-- **Browse & Discover:** Explore a wide range of ethnic Indian fashion items, from sarees and jewelry to traditional footwear and more.
-
-- **Detailed Product Listings:** Get comprehensive product descriptions, pricing, and high-quality images to make informed purchase decisions.
-
-- **User Accounts:** Create your account, manage your profile, and track your order history.
-
-- **Shopping Cart:** Easily add items to your cart, review your selections, and proceed to checkout.
-
-
-## Technologies Used
-
-- **React:** The project is built using the React library, providing a smooth and responsive user interface.
-
-- **Redux Toolkit:** Used for manage the application's state in a centralized way
-
-- **[Additional Libraries/Frameworks Used]**: List any additional libraries or frameworks you've used, e.g., Redux for state management, Tailwind for styling, etc.
+---
 
 ## Getting Started
 
-Follow these steps to get a copy of the project up and running on your local machine:
+Follow these steps to set up and run the project locally.
 
-1. **Clone the Repository:**
-   ```sh
-   git clone https://github.com/namanmish/coconut-fashion.git
+### 1. Clone the Repository
+```bash
+git clone https://github.com/namanmish/coconut-movies.git
+cd coconut-movies
+```
+
+### 2. Setup Backend
+```bash
+cd backend
+npm install
+npm start
+```
+The backend server will run at:  
+```bash
+http://localhost:3000
+```
+
+### 3. Setup Frontend
+In a new terminal window:
+```bash
+cd frontend
+npm install
+npm start
+```
+The frontend will run at:  
+```bash
+http://localhost:1234
+```
+
+**Note:** Make sure the backend is running before starting the frontend. Configure your MongoDB Atlas connection string in `backend/.env`.
+
+---
+
+## Project Structure
+
+- `frontend/` — React application for the user interface.
+- `backend/` — Express server and API endpoints.
+
+---
+
+## Technologies Used
+
+- **MongoDB Atlas** — Multi Cloud database.
+- **React** — For building a responsive UI.
+- **Express.js** — Backend API.
+- **Redux Toolkit** — Application state management.
+- **Tailwind CSS** — Styling (if used).
+- **Other libraries** — Axios, React Router, etc.
+
+---
+
+## Features
+
+- Browse movies and shows.
+- Search movies with real-time results.
+- Display IMDb ratings and search scores.
+- Smooth UI with light ray effects and carousel display.
