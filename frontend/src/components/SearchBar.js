@@ -30,7 +30,7 @@ const SearchBar = () => {
         .catch((err) => {
           if (err.name !== "AbortError") console.error("Error fetching autocomplete", err);
         });
-    }, 500); // 300ms debounce
+    }, 700); // 700ms debounce
 
     return () => clearTimeout(handler);
   }, [searchText]);

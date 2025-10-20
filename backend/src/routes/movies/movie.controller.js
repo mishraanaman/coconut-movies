@@ -21,17 +21,33 @@ const searchMovies = async (req, res) => {
         {
           $search: {
             index: "default", // Atlas search index
-            autocomplete: {
-              query,
-              path: "title",
-              fuzzy: {
-                maxEdits: 2,      // allow up to 2 typos
-                prefixLength: 1,  // require first character to match exactly
-              },
+            compound: {
+              should: [
+                {
+                  autocomplete: {
+                    query,
+                    path: "title",
+                    fuzzy: {
+                      maxEdits: 2,
+                      prefixLength: 1,
+                    },
+                  },
+                },
+                {
+                  autocomplete: {
+                    query,
+                    path: "cast",
+                    fuzzy: {
+                      maxEdits: 2,
+                      prefixLength: 1,
+                    },
+                  },
+                },
+              ],
+              minimumShouldMatch: 1,
             },
-          },
-        },
-        { $project: { title: 1, imdb: 1, poster: 1,score: { $meta: "searchScore" } } },
+          },},
+        { $project: { title: 1, imdb: 1,tomatoes: 1, poster: 1,score: { $meta: "searchScore" } } },
         { $limit: 10 },
       ])
       .toArray();
@@ -39,7 +55,7 @@ const searchMovies = async (req, res) => {
     res.json(results);
   } catch (err) {
     console.error(err);
-    res.status(500).send("Error fetching search results");
+    res.status(700).send("Error fetching search results");
   } finally {
     await client.close();
   }

@@ -5,16 +5,15 @@ const Movie = ({ movie }) => {
   return (
     <div
       style={{
-        border: "1px solid #ccc",
         borderRadius: "8px",
         padding: "16px",
-        margin: "8px",
-        minWidth: "300px",
-        backgroundColor: "#373535ff",
+        margin: "5px",
+        width: "250px",
+        backgroundColor: "#001E2B",
         color: "#fff",
         minHeight: "400px",
         fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-        lineHeight: "1.2",
+         fontSize: "0.8rem"
       }}
     >
        {/* Poster */}
@@ -30,9 +29,11 @@ const Movie = ({ movie }) => {
           }}
         />
       )}
-      <h2 style={{   fontSize: "1 rem", margin: "0 0 5px 0", minHeight: "48px",WebkitLineClamp: 2, WebkitBoxOrient: "vertical" }}>{movie.title}</h2>
+      <h2 style={{   fontSize: "1rem", margin: "0 0 5px 0", minHeight: "48px",WebkitLineClamp: 2, WebkitBoxOrient: "vertical" }}>{movie.title}</h2>
       <p>
-        IMDb Rating: <strong>{movie.imdb?.rating ?? "N/A"}</strong>
+        IMDb: <strong>{movie.imdb?.rating ?? "N/A"}</strong>
+        <br />
+        Rotten Tomatoes: <strong>{movie.tomatoes?.viewer?.rating ?? "N/A"}</strong>
         <br />
         Search Score: <strong>{movie.score?.toFixed(2) ?? "N/A"}</strong>
       </p>
