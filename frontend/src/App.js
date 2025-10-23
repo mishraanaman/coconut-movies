@@ -18,26 +18,16 @@ import SearchResults from "./components/SearchResults";
 import Error from "./components/Error";
 
 const AppLayout = () => {
-  const [user, setUser] = useState({ name: "Naman Mishra", email: "reachoutnaman@gmail.com" });
-  const [results, setResults] = useState([]); // store search results
-
-  // // Search handler passed to Header
-  // const handleSearch = async (query) => {
-  //   try {
-  //     const res = await fetch(`http://localhost:3000/v1/movies/search/?q=${encodeURIComponent(query)}`);
-  //     if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-  //     const data = await res.json();
-  //     setResults(data);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
+  const [user, setUser] = useState({ 
+    name: "Naman Mishra", 
+    email: "reachoutnaman@gmail.com" 
+  });
 
   return (
     <Provider store={Store}>
       <UserContext.Provider value={{ user, setUser }}>
-        <Header/>{/* <Header onSearch={handleSearch} /> */}
-        <Outlet /> {/* Nested routes */}
+        <Header />
+        <Outlet />
         <Footer />
       </UserContext.Provider>
     </Provider>
