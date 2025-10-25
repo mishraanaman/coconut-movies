@@ -66,4 +66,79 @@ const getMoviePoster = async (req, res) => {
   }
 };
 
-module.exports = { searchMovies, getMoviePoster };
+const getMovies = async (req, res) => {
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 20;
+  const skip = (page - 1) * limit;
+
+  try {
+    const collection = req.app.locals.moviesDB.collection("movies");
+
+    const results = await collection
+      .find({ 
+        type: "movie",
+        poster: { $exists: true, $ne: "" },
+        imdb: { $exists: true },
+        "imdb.rating": { $exists: true, $gte: 6.0 }
+      })
+      .sort({ "imdb.rating": -1, released: -1 })
+      .skip(skip)
+      .limit(limit)
+      .project({ 
+        title: 1, 
+        poster: 1, 
+        imdb: 1, 
+        year: 1, 
+        genres: 1, 
+        plot: 1,
+        released: 1,
+        runtime: 1
+      })
+      .toArray();
+
+    res.json(results);
+  } catch (err) {
+    console.error("Movies fetch error:", err);
+    res.status(500).json({ error: "Error fetching movies" });
+  }
+};
+
+const getShows = async (req, res) => {
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 20;
+  const skip = (page - 1) * limit;
+
+  try {
+    const collection = req.app.locals.moviesDB.collection("movies");
+
+    const results = await collection
+      .find({ 
+        type: "series" ,
+        poster: { $exists: true, $ne: "" },
+        imdb: { $exists: true },
+        "imdb.rating": { $exists: true, $gte: 6.0 }
+      })
+      .sort({ "imdb.rating": -1, released: -1 })
+      .skip(skip)
+      .limit(limit)
+      .project({ 
+        title: 1, 
+        poster: 1, 
+        imdb: 1, 
+        year: 1, 
+        genres: 1, 
+        plot: 1,
+        released: 1,
+        runtime: 1,
+        type: 1
+      })
+      .toArray();
+
+    res.json(results);
+  } catch (err) {
+    console.error("Shows fetch error:", err);
+    res.status(500).json({ error: "Error fetching shows" });
+  }
+};
+
+module.exports = { searchMovies, getMoviePoster, getMovies, getShows };

@@ -11,8 +11,8 @@ import Footer from "./components/Footer";
 import Body from "./components/Body";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import Men from "./components/Men";
-import Women from "./components/Women";
+import Movies from "./components/Movies";
+import Shows from "./components/Shows";
 import Cart from "./components/Cart";
 import SearchResults from "./components/SearchResults";
 import Error from "./components/Error";
@@ -44,8 +44,8 @@ const appRouter = createBrowserRouter([
       { path: "/search", element: <SearchResults /> },
       { path: "/about", element: <About /> },
       { path: "/contact", element: <Contact /> },
-      { path: "/men", element: <Men /> },
-      { path: "/women", element: <Women /> },
+      { path: "/movies", element: <Movies /> },
+      { path: "/shows", element: <Shows /> },
       { path: "/cart", element: <Cart /> },
     ],
   },
