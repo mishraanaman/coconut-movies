@@ -37,7 +37,7 @@ The frontend will run at:
 http://localhost:1234
 ```
 
-**Note:** Make sure the backend is running before starting the frontend. Configure your MongoDB Atlas connection string in `backend/.env`.
+**Note:** Make sure the backend is running before starting the frontend. Configure your MongoDB Atlas connection string  as MONGO_URI = <connection_string> in `backend/.env`.
 
 ---
 

@@ -1,6 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Movie = ({ movie }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/movie/${movie._id}`);
+  };
+
   return (
     <div
       style={{
@@ -14,7 +21,18 @@ const Movie = ({ movie }) => {
         fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
         fontSize: "0.8rem",
         display: "flex",
-        flexDirection: "column"
+        flexDirection: "column",
+        cursor: "pointer",
+        transition: "transform 0.2s ease, box-shadow 0.2s ease"
+      }}
+      onClick={handleClick}
+      onMouseEnter={(e) => {
+        e.target.style.transform = "scale(1.02)";
+        e.target.style.boxShadow = "0 8px 25px rgba(0, 0, 0, 0.3)";
+      }}
+      onMouseLeave={(e) => {
+        e.target.style.transform = "scale(1)";
+        e.target.style.boxShadow = "none";
       }}
     >
       {/* Poster */}
