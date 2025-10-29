@@ -1,6 +1,6 @@
 # Mongo Mflix 🎬
 
-Mongo Mflix is a platform to discover movies and shows. It is built using **MongoDB Atlas**, **React** and **Express**. The project has two folders: `frontend` and `backend`.
+Mongo Mflix is a platform to discove your favourite movies, shows and theaters. It is an attempt to showcase MongoDB's Full Text and Geo Search capabilities using **MongoDB Atlas**, **React** and **Express**
 
 ---
 
@@ -14,7 +14,11 @@ git clone https://github.com/namanmish/coconut-movies.git
 cd coconut-movies
 ```
 
-### 2. Setup Backend
+### 2. Configure MongoDB Atlas
+
+Add your MongoDB Atlas connection string as MONGO_URI = <connection_string> in `backend/.env`
+
+### 3. Setup Backend
 ```bash
 cd backend
 npm install
@@ -25,7 +29,7 @@ The backend server will run at:
 http://localhost:3000
 ```
 
-### 3. Setup Frontend
+### 4. Setup Frontend
 In a new terminal window:
 ```bash
 cd frontend
@@ -36,8 +40,6 @@ The frontend will run at:
 ```bash
 http://localhost:1234
 ```
-
-**Note:** Make sure the backend is running before starting the frontend. Configure your MongoDB Atlas connection string  as MONGO_URI = <connection_string> in `backend/.env`.
 
 ---
 
