@@ -13,6 +13,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Movies from "./components/Movies";
 import Shows from "./components/Shows";
+import Theaters from "./components/Theaters";
 import MovieDetail from "./components/MovieDetail";
 import Cart from "./components/Cart";
 import SearchResults from "./components/SearchResults";
@@ -47,6 +48,7 @@ const appRouter = createBrowserRouter([
       { path: "/contact", element: <Contact /> },
       { path: "/movies", element: <Movies /> },
       { path: "/shows", element: <Shows /> },
+      { path: "/theaters", element: <Theaters /> },
       { path: "/movie/:id", element: <MovieDetail /> },
       { path: "/cart", element: <Cart /> },
     ],

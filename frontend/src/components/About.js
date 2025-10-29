@@ -1,4 +1,3 @@
-import { ABOUT_US } from "../../constants";
 
 const About = () => {
   return (
@@ -7,7 +6,9 @@ const About = () => {
         <h1 className="text-4xl font-bold text-center mb-8 text-[#001E2B]">About Mongo Mflix</h1>
         <div className="bg-white rounded-lg shadow-lg p-8">
           <p className="text-lg leading-relaxed text-gray-700 mb-6">
-            {ABOUT_US}
+            Mongo Mflix is a movie and TV show discovery platform that leverages the power of 
+            MongoDB Atlas for its backend database. Our platform allows users to search, explore, 
+            and find detailed information about a vast collection of movies and TV shows.
           </p>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
